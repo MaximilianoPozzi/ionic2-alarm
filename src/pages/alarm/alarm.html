@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Alarma</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h4>Toca el botón azul para establecer una alarma</h4>
+
+  <ion-item color="primary">
+    <ion-datetime displayFormat="HH:mm" (ionChange)="setAlarm()" [(ngModel)]="newAlarm"></ion-datetime>
+  </ion-item>
+
+  <ion-list>
+    <ion-item *ngFor="let alarm of alarms; let i = index">
+      <ion-label>
+        {{alarm.time.format('H:mm')}}
+        <button (click)="removeAlarm(i)">X</button>
+      </ion-label>
+      <ion-toggle color="{{activatedAlarms[i]}}" [(ngModel)]="alarm.set"></ion-toggle>
+
+    </ion-item>
+  </ion-list>
+
+</ion-content>

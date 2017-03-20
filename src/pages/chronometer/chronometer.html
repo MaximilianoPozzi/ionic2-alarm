@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Cronómetro
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <p>{{timeElapsed}}</p>
+  <p>{{showableTimeElapsed}}</p>
+  <button ion-button (click)="startCount()" *ngIf="!started">
+    <ion-icon name="play"></ion-icon>
+  </button>
+  <button ion-button (click)="pauseCount()" *ngIf="started">
+    <ion-icon name="pause"></ion-icon>
+  </button>
+  <button ion-button (click)="stopCount()">
+    <ion-icon name="square"></ion-icon>
+  </button>
+</ion-content>
